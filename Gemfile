@@ -4,7 +4,16 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.4'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+group :development do  
+  gem 'sqlite3'
+end
+
+gem 'bootstrap-sass', '~> 3.2.0.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -14,6 +23,10 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
+gem 'devise'
+
+gem 'whenever', '~> 0.9.2'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -27,10 +40,17 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'ruby-progressbar', '~> 1.5.1'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end  
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

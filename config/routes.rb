@@ -2,6 +2,7 @@ GetThingsDone::Application.routes.draw do
   get "welcome/index"
   get "welcome/about"
   devise_for :users
+  resources :users, only: [:update]
   root to: 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

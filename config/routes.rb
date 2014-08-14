@@ -1,4 +1,8 @@
 GetThingsDone::Application.routes.draw do
+  get "tasks/index"
+  get "tasks/show"
+  get "tasks/new"
+  get "tasks/edit"
   get "welcome/index"
   get "welcome/about"
   devise_for :users

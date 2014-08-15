@@ -1,6 +1,8 @@
 <div class="container"> 
-  <b><%= @tasks.last.title %></b>
-  <p><%= @tasks.last.body.capitalize %></p>
-  <p> Due date: <%= @tasks.last.due_date %></p>
-  <p> Task complete? <%= @tasks.last.complete %></p>
+  <b><%= @task.title %></b>
+  <p><%= @task.body.capitalize %></p>
+  <p> Due date: <%= @task.due_date %></p>
+  <p> Task complete? <%= @task.complete %></p>
 </div>
+
+# check out the parms passed using: <%= params %>

@@ -1,10 +1,8 @@
 GetThingsDone::Application.routes.draw do
-  get "tasks/index"
-  get "tasks/show"
-  get "tasks/new"
-  get "tasks/edit"
-  get "welcome/index"
-  get "welcome/about"
+  resources :tasks
+
+  get 'about' => 'welcome#about'
+  
   devise_for :users
   resources :users, only: [:update]
   root to: 'welcome#index'

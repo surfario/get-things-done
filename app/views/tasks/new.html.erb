@@ -1,2 +1,18 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+
+  <%= form_for [@task_list, @task] do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+
+    <%= f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  </div>  
+  <% end %> 
+
+
+<!-- Notes: 
+need to automatically assign due date upon create (1 week away)
+need to automatically assign not complete -->
+

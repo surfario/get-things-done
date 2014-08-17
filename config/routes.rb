@@ -1,5 +1,7 @@
 GetThingsDone::Application.routes.draw do
-  resources :tasks
+  resources :task_lists do
+    resources :tasks, except: [:index]
+  end  
 
   get 'about' => 'welcome#about'
   

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @task_list.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @task_list.user.user_name %>
+</p>
+
+<p>
+  <strong>Tasks</strong>
+  <% @task_list.tasks.each do |t| %>
+    <p><%= link_to t.title, [@task_list, t] %></p>
+<!-- above in words: grab a task and return title, and generate path using task_list & task -->
+
+  <% end %>  
+</p>  
+
+<%= link_to 'Edit', edit_task_list_path(@task_list) %> |
+<%= link_to 'Back', task_lists_path %>

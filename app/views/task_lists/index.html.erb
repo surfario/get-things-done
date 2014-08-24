@@ -1,5 +1,9 @@
 <h1>My Task Lists</h1>
 
+<% unless @task_lists %>
+  <p>Please sign in to view and create task lists</p>
+<% else %>
+
 <table class="table">
   <thead>
     <tr>
@@ -23,6 +27,8 @@
     <% end %>
   </tbody>
 </table>
+
+<% end %>
 
 <br>
 

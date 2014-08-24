@@ -16,7 +16,6 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th>Body</th>
         <th>Days Left</th>
         <th>Complete</th>
         <th></th>
@@ -24,13 +23,14 @@
     </thead>
 
     <tbody>
-      <% @task_list.tasks.each do |t| %>
-        <tr>
+
+      <% @tasks.each do |t| %>
+       <tr>
           <td><%= link_to t.title, [@task_list, t] %></td>
-          <td><%= t.body %></td>
-          <td><%= t.due_date %></td>
-          <td><%= t.complete %></td>
-        </tr>        
+          <td><%= distance_of_time_in_words_to_now(t.created_at + 7.days) %></td>
+          <td><%= link_to 'Mark as complete', task_list_task_path(@task_list, t, completed: true), method: :patch, class: "btn btn-success" %></td>
+          <td><%= link_to 'Delete', [@task_list, t], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>       
   <!-- above in words: grab a task and return title, and generate path using task_list & task -->
       <% end %>
     </tbody>

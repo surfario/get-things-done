@@ -4,14 +4,14 @@ class TaskListsController < ApplicationController
   # GET /task_lists
   # GET /task_lists.json
   def index
-    @task_lists = TaskList.all
+    @task_lists = current_user ? current_user.task_lists : nil
   end
 
   # GET /task_lists/1
   # GET /task_lists/1.json
   def show
     @task_list = TaskList.find(params[:id])
-    @tasks = @task_list.tasks
+    @tasks = @task_list.tasks.incomplete
   end
 
   # GET /task_lists/new

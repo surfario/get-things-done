@@ -23726,3 +23726,66 @@ Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 0.8ms)
   [1m[36m (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140815212335')[0m
   [1m[35mTask Load (0.4ms)[0m  SELECT "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT 1
   [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks" ORDER BY "tasks"."id" DESC LIMIT 1[0m
+
+
+Started GET "/task_lists/3/tasks/10" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"task_list_id"=>"3", "id"=>"10"}
+  [1m[36mTaskList Load (0.2ms)[0m  [1mSELECT "task_lists".* FROM "task_lists" WHERE "task_lists"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."task_list_id" = ? AND "tasks"."id" = ? LIMIT 1  [["task_list_id", 3], ["id", "10"]]
+  Rendered tasks/show.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 52ms (Views: 47.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+
+
+Started GET "/assets/task_lists.js?body=1" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+
+
+Started GET "/assets/bootstrap" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-26 14:01:36 -0700
+
+
+Started GET "/task_lists" for 127.0.0.1 at 2014-08-26 14:03:51 -0700
+Processing by TaskListsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTaskList Load (0.3ms)[0m  [1mSELECT "task_lists".* FROM "task_lists" WHERE "task_lists"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered task_lists/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 56ms (Views: 52.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/task_lists/3" for 127.0.0.1 at 2014-08-26 14:03:53 -0700
+Processing by TaskListsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mTaskList Load (0.2ms)[0m  SELECT "task_lists".* FROM "task_lists" WHERE "task_lists"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "task_lists".* FROM "task_lists" WHERE "task_lists"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."task_list_id" = ? AND (complete is NULL or complete = 'f')[0m  [["task_list_id", 3]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."task_list_id" = ? AND "tasks"."complete" = 't'  [["task_list_id", 3]]
+  Rendered task_lists/show.html.erb within layouts/application (11.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 71ms (Views: 36.6ms | ActiveRecord: 1.3ms)

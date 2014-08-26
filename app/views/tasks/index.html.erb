@@ -1,0 +1,6 @@
+<div class="container">  
+  <h1>My Task List</h1>
+  <% @tasks.each do |t| %>
+    <p><%= link_to t.title, task_path(t.id) %></p>
+  <% end %>  
+<div class="container">  

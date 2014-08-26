@@ -5,20 +5,25 @@ describe Task do
     
     before do
       @task = sample_task
-      @task.create
+      @task.save
+    end  
 
-
-    describe "#time_remaining" do
-      it "returns the days remaining to complete a task" do
-        expect( @task.days_remaining ).to eq(7)
+    describe "#due_date" do
+      it "returns the date a task is due" do
+        expect( @task.due_date ).to eq( (@task.created_at + 7.days).to_date )
       end  
     end  
 
-    # additional tests: 
-    # complete or not? returns false
-    # has title, body
-
-  
-
+    describe "#title" do
+      it "returns the title of a task" do
+        expect( @task.title ).to eq( "Task title" )
+      end  
+    end
+      
   end  
+
+  def sample_task
+    task = Task.new(title: "Task title", body: "Tasks are hard work")
+  end
+    
 end

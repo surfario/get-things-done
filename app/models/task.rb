@@ -5,6 +5,8 @@ class Task < ActiveRecord::Base
 
   scope :incomplete, -> { where("complete is NULL or complete = ?", false) }
 
+  scope :completed, -> { where(complete: true) }
+
   def due_date
     due_date = (self.created_at + 7.days).to_date
   end

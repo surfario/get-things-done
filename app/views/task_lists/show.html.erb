@@ -25,7 +25,7 @@
     <tbody>
 
       <% @tasks.each do |t| %>
-       <tr>
+        <tr>
           <td><%= link_to t.title, [@task_list, t] %></td>
           <td><%= distance_of_time_in_words_to_now(t.created_at + 7.days) %></td>
           <td><%= link_to 'Mark as complete', task_list_task_path(@task_list, t, completed: true), method: :patch, class: "btn btn-success" %></td>
@@ -41,4 +41,27 @@
 <%= link_to "Add a Task", new_task_list_task_path(@task_list) %> | 
 <%= link_to 'Edit', edit_task_list_path(@task_list) %> |
 <%= link_to 'Back', task_lists_path %> 
+
+
+<p><p>
+  <strong>Copmleted Tasks</strong>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <% @tasks_completed.each do |t| %>
+      <tr>
+      <td> <%= link_to t.title, [@task_list, t] %> </td>
+    <% end %>      
+
+    </tbody>
+  </table>  
+      
+</p></p>  
 

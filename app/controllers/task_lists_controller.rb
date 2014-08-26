@@ -12,6 +12,7 @@ class TaskListsController < ApplicationController
   def show
     @task_list = TaskList.find(params[:id])
     @tasks = @task_list.tasks.incomplete
+    @tasks_completed = @task_list.tasks.completed
   end
 
   # GET /task_lists/new
